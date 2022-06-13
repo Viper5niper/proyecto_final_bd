@@ -16,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('vuelo', 'MainController')->name('index','vuelo')->except(['destroy']);
+Route::get('vuelo/delete/{id}', [vueloController::class, 'destroy'])
+    ->name('vuelo.destroy');
+
